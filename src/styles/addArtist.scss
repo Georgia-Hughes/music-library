@@ -1,0 +1,23 @@
+.addArtist {
+    padding: 1em 2em;
+    display: flex;
+    justify-content: center;
+}
+
+.row{
+    padding: .6em;
+}
+
+button{
+    float: right;
+    padding: 0.6em 2em;
+    border-radius: 2em;
+}
+
+button:focus {
+    outline:0;
+}
+
+button:hover{
+    cursor: pointer;
+}
