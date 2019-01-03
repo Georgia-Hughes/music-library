@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import ArtistName from './ArtistName';
-import Genre from './Genre';
+import Song from './Song';
 import '../styles/artist.scss';
 
 class Artists extends React.Component {
@@ -28,7 +28,7 @@ class Artists extends React.Component {
         <table>
           <tr>
             <th>Name</th>
-            <th>Genre</th>
+            <th>Song</th>
           </tr>
           <tr>
             <td>
@@ -44,9 +44,9 @@ class Artists extends React.Component {
             <td>
               {this.state.artists.map((artist) => {
                 return (
-                  <Genre
+                  <Song
                     key={artist._id}
-                    genre={artist.genre}
+                    song={artist.song}
                   />
                 );
               })}

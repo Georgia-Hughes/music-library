@@ -5,7 +5,7 @@ import '../styles/addArtist.scss';
 
 const initialFields = {
   name: '',
-  genre: '',
+  song: '',
 };
 
 class AddArtist extends React.Component {
@@ -95,10 +95,10 @@ class AddArtist extends React.Component {
               />
             </div>
             <div className="row">
-              <label>Genre:</label>
+              <label>song:</label>
               <input
-                name="genre"
-                value={this.state.fields.genre}
+                name="song"
+                value={this.state.fields.song}
                 onChange={this.handleFieldChange}
               />
             </div>
