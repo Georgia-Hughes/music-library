@@ -3,19 +3,20 @@ import axios from 'axios';
 import Alert from './Alert';
 import '../styles/addArtist.scss';
 
+const initialFields = {
+  name: '',
+  genre: '',
+};
+
 class AddArtist extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      fields: [{
-        name: '',
-        genre: '',
-        alertMessage: '',
-        isSuccess: false,
-        isError: false,
-      },
-      ],
+      fields: initialFields,
+      alertMessage: '',
+      isSuccess: false,
+      isError: false,
       error: '',
     };
   }
@@ -25,6 +26,7 @@ class AddArtist extends React.Component {
   };
 
   handleAddArtist = (event) => {
+    console.log(this.state.fields);
     event.preventDefault();
 
     this.setState({
@@ -42,6 +44,7 @@ class AddArtist extends React.Component {
         .then(() => this.setState({
           isSuccess: true,
           alertMessage: 'Artist added.',
+          fields: initialFields,
         }))
         .catch(() => {
           this.setState({
@@ -57,12 +60,13 @@ class AddArtist extends React.Component {
   };
 
     handleFieldChange = (event) => {
-      const { name, value } = event.target;
-      this.setState({ [name]: value });
+      const fields = { ...this.state.fields };
+      fields[event.target.name] = event.target.value;
+      this.setState({ fields: fields });
     };
 
     validate() {
-      return this.state.name.length > 2;
+      return this.state.fields.name.length > 2;
     }
 
     render() {
